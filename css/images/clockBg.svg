@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 60 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-7861.03,-4335.94)">
+        <g transform="matrix(0.341158,0,0,0.427489,6068.44,2293.77)">
+            <g transform="matrix(2.93119,0,0,2.33924,-17787.8,-5365.69)">
+                <g id="clockBg">
+                    <path id="clockBg1" serif:id="clockBg" d="M7920.7,4335.94L7861.03,4335.94L7861.03,4388.73L7920.7,4388.73L7920.7,4335.94Z" style="fill:white;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
