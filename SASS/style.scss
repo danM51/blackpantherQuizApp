@@ -426,6 +426,7 @@ body {
           }
           .refreshBtn:hover{
             background-color: #9221ff;
+
             transition: all 0.3s;
           }
         }
@@ -614,8 +615,9 @@ body {
             display: flex;
             flex-direction: row;
             align-self: center;
+            justify-content: space-around;
 
-            padding: 0 1rem;
+            padding: 0 4rem;
             transition: all 1s;
             .starOne,
             .starTwo,

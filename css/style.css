@@ -543,7 +543,8 @@ body .gameOneContainer .game .centerActorsContainer .actorContainer .actorSix:ho
     display: flex;
     flex-direction: row;
     align-self: center;
-    padding: 0 1rem;
+    justify-content: space-around;
+    padding: 0 4rem;
     transition: all 1s;
   }
   body .gameOneContainer .game .scoreContainer .starContainer .starOne,
