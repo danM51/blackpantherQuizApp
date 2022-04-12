@@ -85,12 +85,17 @@ const countdown = ()=>{
 
 // question functions here -->
 const saidStatements = {
-    chadwick: '"i am the actual king"',
-    michael: '"i will be king!"',
-    Lupita: '"yes my king"',
-    letitia: '"no brother!"',
-    danai: '"you annoy  me"',
-    daniel: '"i will protect you my king!"',
+    question1: '"question1"',
+    question2: '"question2"',
+    question3: '"question3"',
+    question4: '"question4"',
+    question5: '"question5"',
+    question6: '"question6"',
+    question7: '"question7"',
+    question8: '"question8"',
+    question9: '"question9"',
+    question10: '"question10"',
+   
 }
 const changeQuote = ()=>{
     const keys = Object.values(saidStatements);
