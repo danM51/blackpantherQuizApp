@@ -22,6 +22,8 @@ const gameContainer = document.getElementById('gameContainer');
 // play END
 const questionTab = document.getElementById('questionTab');
 const timer = document.getElementById('countdown');
+const nextBtn = document.getElementById('nextBtn');
+const startBtn = document.getElementById('startBtn');
 const refreshBtn = document.getElementById('refreshBtn');
 const quote = document.getElementById('quote');
 const nice = document.getElementById('nice');
@@ -55,34 +57,7 @@ const playGame = ()=>{
 // end of play function
 
 
-// Timer and reset functions here -->
-const startingTime = 60;
-let time =  startingTime * 1; 
 
-
-const countdown = ()=>{
-    if (time > 0) {
-        time--;    
-        if (time>20) {
-            timer.style.color = '#ffd100';
-        }else{
-             timer.style.color = 'white';  
-             timer.style.backgroundColor = 'red' ;
-            //  timer.style.backgroundColor= 'white';
-             timer.style.backgroundImage = 'unset';
-        }
-    }else{
-        let timesUp = `${time}!`;
-        timesUp;
-    }
-    
-    // let minutes = 0;
-    let seconds = time;
-    
-    let newInnerTime = `${seconds}`;
-    return timer.innerText = newInnerTime;
-  
-}
 
 
 
@@ -123,14 +98,8 @@ const selectActorIncorrect = ()=>{
    questionTab.style.border = 'solid red 3px';
    nope.style.color = 'red';
 }
-const revertInitialColor = ()=>{
-    setInterval(() => {
-        questionTab.style.border = 'solid #c0bfbfce 1px ';
-        nice.style.color = 'rgba(146, 146, 146, 0.89)';
-        nope.style.color = 'rgba(146, 146, 146, 0.89)';
-    }, 3000);
 
-}
+
 
 // correct answers 
 const chadwickAnswers ={
@@ -182,14 +151,68 @@ playBtn.addEventListener('click', ()=>{
     
 })
 
+// Timer and reset functions here -->
+let startingTime = 60;
+let time =  startingTime ; 
 
 
-  refreshBtn.addEventListener('click', ()=>{
-      changeQuote();
- let decreaseCountdown =  setInterval(countdown, 1000);
-     decreaseCountdown;
+const countdown = ()=>{
+    if (time > 0) {
+        time--;    
+        if (time>20) {
+            timer.style.color = '#ffd100';
+        }else{
+             timer.style.color = 'white';  
+             timer.style.backgroundColor = 'red' ;
+            //  timer.style.backgroundColor= 'white';
+             timer.style.backgroundImage = 'unset';
+        }
+    }else{
+        let timesUp = `${time}!`;
+        timesUp;
+
+    }
     
-    })
+    // let minutes = 0;
+    // let seconds = time;
+    
+    let newInnerTime = `${time}`;
+    return timer.innerText = newInnerTime;
+  
+}
+// const decreaseCountdown = ()=>{
+//     let decreasesCountdown = 
+//     return decreasesCountdown;
+// }
+// const removeTimerInterval = ()=>{
+    
+// }
+
+const revertInitialColor = ()=>{
+    setInterval(() => {
+        questionTab.style.border = 'solid #c0bfbfce 1px ';
+        nice.style.color = 'rgba(146, 146, 146, 0.89)';
+        nope.style.color = 'rgba(146, 146, 146, 0.89)';
+        nextBtn.style.border = 'none';
+        nextBtn.style.fontSize = '0.8rem';
+        
+    }, 3000);
+
+}
+
+
+const onNextBtn = ()=>{
+        
+        nextBtn.style.border = 'inset rgb(32, 32, 32) 1.5px';
+        nextBtn.style.fontSize = '0.7rem';
+        nextBtn.innerText = 'next';
+        console.log('event listener activated')
+}
+
+     
+ 
+
+
 
 // functions END-------- -------- -------- -------- -------- -------- -------->
 
@@ -197,6 +220,38 @@ playBtn.addEventListener('click', ()=>{
 
 
 // EventListeners START-------- -------- -------- -------- -------- -------- -------->
+startBtn.addEventListener('click', ()=>{
+    nextBtn.style.display = 'unset';
+    startBtn.style.display = 'none';
+    changeQuote();
+    setInterval(countdown, 1000);
+    clearInterval(countdown);
+   
+
+},{once:true})
+nextBtn.addEventListener('click', (e)=>{
+    if (e) {     
+        
+     onNextBtn();
+    changeQuote();
+    
+    }else{
+
+        clearInterval(countdown)
+    }
+
+     console.log('you see me man?????!');
+});
+// nextBtn.addEventListener('mouseenter', ()=>{
+//       myTimer(clearInterval);
+//       console.log('clearing.....');
+// })
+// nextBtn.addEventListener('click', ()=>{
+//     onStartBtn();
+//     changeQuote();
+// });
+// refreshBtn.addEventListener('click', decreaseCountdown)
+
 if (questionTab.style.border != 'solid #c0bfbfce 1px'||
     nice.style.color != 'grey'||
     nope.style.color != 'grey' ) {
@@ -213,13 +268,18 @@ chadwick.addEventListener('mouseleave', ()=>{
 })
 chadwick.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
+
+
     if (quote.innerText === chadwickAnswers.cAnswer1 || 
         quote.innerText === chadwickAnswers.cAnswer2 || 
         quote.innerText === chadwickAnswers.cAnswer3) {
         chadwick.style.backgroundColor = 'green';
         chadwick.style.borderColor = 'lightGreen';
-        selectActorCorrect()
-        revertInitialColor()
+        selectActorCorrect();
+        revertInitialColor();
+        changeQuote();
+      
+
 
             
     }else{

@@ -411,6 +411,22 @@ body {
               }
             }
           }
+          .nextBtn{
+            width: 40px;
+            height: 90%;
+            margin-left: -6.1rem;
+            border-radius: 0px 5px 5px 0px;
+            border: none;
+
+            background-color:#c4a8ff;
+            // background: none;
+            color: white;
+            text-align: center;
+            transition: all 1.5s;
+            // activate this code when button is clicked
+            // border: inset rgb(32, 32, 32) 1.5px;
+            font-size: 0.8rem;
+          }
           .refreshBtn {
             cursor: pointer;
             width: 37px;
@@ -424,9 +440,9 @@ body {
             background-position: center;
             transition: all 0.8s;
           }
-          .refreshBtn:hover{
+          .refreshBtn:hover, .nextBtn:hover{
             background-color: #9221ff;
-
+            color: white;
             transition: all 0.3s;
           }
         }

@@ -369,6 +369,18 @@ body .mainDesktopContain {
   body .gameOneContainer .game .topQuestionContainer .questionTab .whoSays .quote {
     color: black;
   }
+  body .gameOneContainer .game .topQuestionContainer .nextBtn {
+    width: 40px;
+    height: 90%;
+    margin-left: -6.1rem;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    background-color: #c4a8ff;
+    color: white;
+    text-align: center;
+    transition: all 1.5s;
+    font-size: 0.8rem;
+  }
   body .gameOneContainer .game .topQuestionContainer .refreshBtn {
     cursor: pointer;
     width: 37px;
@@ -382,8 +394,9 @@ body .mainDesktopContain {
     background-position: center;
     transition: all 0.8s;
   }
-  body .gameOneContainer .game .topQuestionContainer .refreshBtn:hover {
+  body .gameOneContainer .game .topQuestionContainer .refreshBtn:hover, body .gameOneContainer .game .topQuestionContainer .nextBtn:hover {
     background-color: #9221ff;
+    color: white;
     transition: all 0.3s;
   }
   body .gameOneContainer .game .centerActorsContainer {
