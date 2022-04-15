@@ -390,15 +390,18 @@ body {
             height: 105px;
             background-image: url(/css/images/QuoteIcon.svg);
             background-repeat: no-repeat;
-            background-position: right;
-            background-position-y: 4px;
-            background-position-x: 480px;
+            background-position: bottom;
+            background-position-y: 50px;
+            background-position-x: 290px;
             background-size: 40px;
-            border: solid #c0bfbfce 1px;
+            border: solid #c0bfbfce 0.3px;
+            box-shadow: #7a6a9d 0px 05px 2px;
             // background-color: #9221ff;
             border-radius: 5px;
             padding: 0.3rem 0.5rem 0 0.5rem;
-
+            transition: all 0.5s;
+            position: relative;
+            z-index: 1;
             .questionHeading {
               color: #c4a8ff;
               //   color: white;
@@ -411,13 +414,18 @@ body {
               }
             }
           }
+          .questionTab:hover{
+            background-color: #f7f4fddf;
+            transition: all 0.5s;
+          }
           .nextBtn{
             width: 40px;
             height: 90%;
+            
             margin-left: -6.1rem;
             border-radius: 0px 5px 5px 0px;
             border: none;
-
+            box-shadow: rgb(75, 75, 75) 0px 05px 2px;
             background-color:#c4a8ff;
             // background: none;
             color: white;
@@ -426,6 +434,17 @@ body {
             // activate this code when button is clicked
             // border: inset rgb(32, 32, 32) 1.5px;
             font-size: 0.8rem;
+            position: relative;
+            z-index: 0;
+          }
+          .nextBtn:hover{
+              background-color: #9221ff;
+            color: white;
+            margin-top: 5px;
+            transform: skewY(5deg);
+            transition: all 0.3s;
+            box-shadow: rgb(52, 52, 52) -0.5px 05px 3px;
+            
           }
           .refreshBtn {
             cursor: pointer;
@@ -440,7 +459,7 @@ body {
             background-position: center;
             transition: all 0.8s;
           }
-          .refreshBtn:hover, .nextBtn:hover{
+          .refreshBtn:hover{
             background-color: #9221ff;
             color: white;
             transition: all 0.3s;
@@ -476,7 +495,20 @@ body {
               width: 85px;
               height: 85px;
               border-radius: 50%;
-              border: solid #ffd100 1px;
+              border: solid #ffd100 2.5px;
+              transition: all 0.5s;
+            }
+            .actorOneNextBtn,
+            .actorTwoNextBtn,
+            .actorThreeNextBtn,
+            .actorFourNextBtn,
+            .actorFiveNextBtn,
+            .actorSixNextBtn {
+              background-color: black;
+              width: 85px;
+              height: 85px;
+              border-radius: 50%;
+              border: solid #ffd100 3px;
               transition: all 0.5s;
             }
             // .actorOne:hover,
@@ -500,6 +532,7 @@ body {
               background-position-y: 10px;
               background-size: 46px;
             }
+            
             .actorTwo {
               background-image: url(/css/images/michael.svg);
               background-repeat: no-repeat;
@@ -507,6 +540,7 @@ body {
               background-position-y: 14px;
               background-size: 50px;
             }
+           
             .actorThree {
               background-image: url(/css/images/lupita.svg);
               background-repeat: no-repeat;
@@ -514,6 +548,7 @@ body {
               background-position-y: 6px;
               background-size: 47px;
             }
+           
             .actorFour {
               background-image: url(/css/images/letitia.svg);
               background-repeat: no-repeat;
@@ -521,6 +556,7 @@ body {
               background-position-y: 14px;
               background-size: 46px;
             }
+            
             .actorFive {
               background-image: url(/css/images/danai.svg);
               background-repeat: no-repeat;
@@ -528,6 +564,7 @@ body {
               background-position-y: 14px;
               background-size: 55px;
             }
+            
             .actorSix {
               background-image: url(/css/images/daniel.svg);
               background-repeat: no-repeat;
@@ -535,6 +572,7 @@ body {
               background-position-y: 8px;
               background-size: 66px;
             }
+           
             .actorOne:hover,
             .actorThree:hover,
             .actorFive:hover {
@@ -588,6 +626,7 @@ body {
               border-left: solid #c4a8ff 0.3rem;
               border-bottom: solid #c4a8ff 0.4rem;
               transition: all 0.3s;
+
             }
           }
         }

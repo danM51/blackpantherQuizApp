@@ -351,13 +351,17 @@ body .mainDesktopContain {
     height: 105px;
     background-image: url(/css/images/QuoteIcon.svg);
     background-repeat: no-repeat;
-    background-position: right;
-    background-position-y: 4px;
-    background-position-x: 480px;
+    background-position: bottom;
+    background-position-y: 50px;
+    background-position-x: 290px;
     background-size: 40px;
-    border: solid rgba(192, 191, 191, 0.8078431373) 1px;
+    border: solid rgba(192, 191, 191, 0.8078431373) 0.3px;
+    box-shadow: #7a6a9d 0px 5px 2px;
     border-radius: 5px;
     padding: 0.3rem 0.5rem 0 0.5rem;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 1;
   }
   body .gameOneContainer .game .topQuestionContainer .questionTab .questionHeading {
     color: #c4a8ff;
@@ -369,17 +373,32 @@ body .mainDesktopContain {
   body .gameOneContainer .game .topQuestionContainer .questionTab .whoSays .quote {
     color: black;
   }
+  body .gameOneContainer .game .topQuestionContainer .questionTab:hover {
+    background-color: rgba(247, 244, 253, 0.8745098039);
+    transition: all 0.5s;
+  }
   body .gameOneContainer .game .topQuestionContainer .nextBtn {
     width: 40px;
     height: 90%;
     margin-left: -6.1rem;
     border-radius: 0px 5px 5px 0px;
     border: none;
+    box-shadow: rgb(75, 75, 75) 0px 5px 2px;
     background-color: #c4a8ff;
     color: white;
     text-align: center;
     transition: all 1.5s;
     font-size: 0.8rem;
+    position: relative;
+    z-index: 0;
+  }
+  body .gameOneContainer .game .topQuestionContainer .nextBtn:hover {
+    background-color: #9221ff;
+    color: white;
+    margin-top: 5px;
+    transform: skewY(5deg);
+    transition: all 0.3s;
+    box-shadow: rgb(52, 52, 52) -0.5px 5px 3px;
   }
   body .gameOneContainer .game .topQuestionContainer .refreshBtn {
     cursor: pointer;
@@ -394,7 +413,7 @@ body .mainDesktopContain {
     background-position: center;
     transition: all 0.8s;
   }
-  body .gameOneContainer .game .topQuestionContainer .refreshBtn:hover, body .gameOneContainer .game .topQuestionContainer .nextBtn:hover {
+  body .gameOneContainer .game .topQuestionContainer .refreshBtn:hover {
     background-color: #9221ff;
     color: white;
     transition: all 0.3s;
@@ -424,7 +443,20 @@ body .gameOneContainer .game .centerActorsContainer .actorContainer .actorSix {
     width: 85px;
     height: 85px;
     border-radius: 50%;
-    border: solid #ffd100 1px;
+    border: solid #ffd100 2.5px;
+    transition: all 0.5s;
+  }
+  body .gameOneContainer .game .centerActorsContainer .actorContainer .actorOneNextBtn,
+body .gameOneContainer .game .centerActorsContainer .actorContainer .actorTwoNextBtn,
+body .gameOneContainer .game .centerActorsContainer .actorContainer .actorThreeNextBtn,
+body .gameOneContainer .game .centerActorsContainer .actorContainer .actorFourNextBtn,
+body .gameOneContainer .game .centerActorsContainer .actorContainer .actorFiveNextBtn,
+body .gameOneContainer .game .centerActorsContainer .actorContainer .actorSixNextBtn {
+    background-color: black;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: solid #ffd100 3px;
     transition: all 0.5s;
   }
   body .gameOneContainer .game .centerActorsContainer .actorContainer .actorOne {

@@ -63,13 +63,13 @@
                         <div class="questionTab" id="questionTab">
                             <h2 class="questionHeading">How well do you know your heroes?</h2>
                             <h3 class="whoSays"><span>Who:</span> <span id="quote" class="quote">"..."</span></h3>
-                            <h4 style="margin-top: 0.5rem; color: rgba(146, 146, 146, 0.89);"><span id="nice">nice</span> | <span id="nope">nope</span></h4>
+                            <h4 style="margin-top: 0.5rem; color: rgba(146, 146, 146, 0.036);"><span id="nice">NICE</span> | <span id="nope">NOPE</span></h4>
                             
                         </div>
                         <button  class="nextBtn" id="startBtn">start</button>
-                        <button style="display: none;"  class="nextBtn" id="nextBtn">next</button>
+                        <!-- <button style="display: none;"  class="nextBtn" id="nextBtn">next</button> -->
 
-                        <button class="refreshBtn" id="refreshBtn"></button>
+                        <button class="refreshBtn" id="refreshBtn" onclick="window.location.reload()"></button>
                     </div>
                  
                     <!-- end of top question container -->
@@ -150,7 +150,7 @@
                     <div class="scoreContainer">
                         <div class="score">
                             <h4>SCORE</h4>
-                            <h4 class="scoreNumber" id="scoreNumber">6/6</h4>
+                            <h4 class="scoreNumber" id="scoreNumber">0/6</h4>
                         </div>
                             <div class="starContainer" id="starContainer">
                                 <div class="starOne"></div>
@@ -178,6 +178,6 @@
             <!-- End of Game #1 -->
 
     </main>
-    <script src="./app.js"></script>
+    <script defer src="./app.js"></script>
 </body>
 </html>

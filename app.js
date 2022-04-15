@@ -22,7 +22,7 @@ const gameContainer = document.getElementById('gameContainer');
 // play END
 const questionTab = document.getElementById('questionTab');
 const timer = document.getElementById('countdown');
-const nextBtn = document.getElementById('nextBtn');
+// const nextBtn = document.getElementById('nextBtn');
 const startBtn = document.getElementById('startBtn');
 const refreshBtn = document.getElementById('refreshBtn');
 const quote = document.getElementById('quote');
@@ -38,13 +38,14 @@ const letitia = document.getElementById('actorFour');
 const danai = document.getElementById('actorFive');
 const daniel = document.getElementById('actorSix');
 // end of actors
-const actorInfoOne = document.getElementById('actorInfoOne')
-const actorInfoTwo = document.getElementById('actorInfoTwo')
-const actorInfoThree = document.getElementById('actorInfoThree')
-const actorInfoFour = document.getElementById('actorInfoFour')
-const actorInfoFive = document.getElementById('actorInfoFive')
-const actorInfoSix = document.getElementById('actorInfoSix')
+const actorInfoOne = document.getElementById('actorInfoOne');
+const actorInfoTwo = document.getElementById('actorInfoTwo');
+const actorInfoThree = document.getElementById('actorInfoThree');
+const actorInfoFour = document.getElementById('actorInfoFour');
+const actorInfoFive = document.getElementById('actorInfoFive');
+const actorInfoSix = document.getElementById('actorInfoSix');
 // end of actor Info tabs
+const scoreNumber = document.getElementById('scoreNumber');
 
 // functions START-------- -------- -------- -------- -------- -------- -------->
 const playGame = ()=>{
@@ -55,10 +56,6 @@ const playGame = ()=>{
 }
 // shows/ redirects user to the game container once the button is clicked
 // end of play function
-
-
-
-
 
 
 // question functions here -->
@@ -84,20 +81,16 @@ const changeQuote = ()=>{
 
 
 // actor onclick/hover select answer functions here -->
+let currentScore = 0;
+// let newScore = currentScore + 1;
+  const pointScore = ()=>{
+   return  currentScore += 1 ;
+  }
 
 const openInfoTab = (position, visibility)=>{
     return position.style.visibility = visibility;
 }
-const selectActorCorrect = ()=>{
- questionTab.style.border = 'solid lightGreen 3px';
- nice.style.color = 'lightGreen';
- 
 
-}
-const selectActorIncorrect = ()=>{
-   questionTab.style.border = 'solid red 3px';
-   nope.style.color = 'red';
-}
 
 
 
@@ -180,37 +173,85 @@ const countdown = ()=>{
     return timer.innerText = newInnerTime;
   
 }
-// const decreaseCountdown = ()=>{
-//     let decreasesCountdown = 
-//     return decreasesCountdown;
-// }
-// const removeTimerInterval = ()=>{
-    
-// }
+
 
 const revertInitialColor = ()=>{
     setInterval(() => {
         questionTab.style.border = 'solid #c0bfbfce 1px ';
-        nice.style.color = 'rgba(146, 146, 146, 0.89)';
-        nope.style.color = 'rgba(146, 146, 146, 0.89)';
-        nextBtn.style.border = 'none';
-        nextBtn.style.fontSize = '0.8rem';
+        nice.style.color = 'rgba(146, 146, 146, 0.036)';
+        nope.style.color = 'rgba(146, 146, 146, 0.036)';
+        // nextBtn.style.border = 'none';
+        // nextBtn.style.fontSize = '0.8rem';
+
+
+
         
     }, 3000);
 
 }
 
 
-const onNextBtn = ()=>{
+const onNext = ()=>{
         
-        nextBtn.style.border = 'inset rgb(32, 32, 32) 1.5px';
-        nextBtn.style.fontSize = '0.7rem';
-        nextBtn.innerText = 'next';
-        console.log('event listener activated')
+        // nextBtn.style.border = 'inset rgb(32, 32, 32) 1.5px';
+        // nextBtn.style.fontSize = '0.7rem';
+        // nextBtn.innerText = 'next';
+        console.log('event listener activated');
+        // actors
+       
+        chadwick.style.borderColor = '#ffd100';
+        michael.style.borderColor = '#ffd100';
+        lupita.style.borderColor = '#ffd100';
+        letitia.style.borderColor = '#ffd100';
+        danai.style.borderColor = '#ffd100';
+        daniel.style.borderColor = '#ffd100';
+
+    if (questionTab.style.border != 'solid #c0bfbfce 1px'||
+    nice.style.color != 'grey'||
+    nope.style.color != 'grey' ) {
+    revertInitialColor();
+    }
 }
 
-     
+const selectActorCorrect = ()=>{
+    nice.style.display = 'unset';
+ questionTab.style.border = 'solid lightGreen 3px';
+ nice.style.color = 'lightGreen';
+  nope.style.color = 'rgba(146, 146, 146, 0.036)';
+  nope.style.display = 'none';
+
+
+
+
+
+
+const score = ()=>{
+ scoreNumber.innerText = `${pointScore()}/6`
+}
+score();
+
+changeQuote();
+onNext();
+
+if (questionTab.style.border != 'solid #c0bfbfce 1px'||
+nice.style.color != 'grey'||
+nope.style.color != 'grey' ) {
+revertInitialColor();
+}
  
+
+
+
+}
+const selectActorIncorrect = ()=>{
+    nope.style.display = 'unset';
+   questionTab.style.border = 'solid red 3px';
+   nope.style.color = 'red';
+
+    nice.style.color = 'rgba(146, 146, 146, 0.036)';
+    nice.style.display = 'none';
+    
+}
 
 
 
@@ -221,42 +262,28 @@ const onNextBtn = ()=>{
 
 // EventListeners START-------- -------- -------- -------- -------- -------- -------->
 startBtn.addEventListener('click', ()=>{
-    nextBtn.style.display = 'unset';
+    // nextBtn.style.display = 'unset';
     startBtn.style.display = 'none';
     changeQuote();
     setInterval(countdown, 1000);
     clearInterval(countdown);
-   
+
 
 },{once:true})
-nextBtn.addEventListener('click', (e)=>{
-    if (e) {     
-        
-     onNextBtn();
-    changeQuote();
-    
-    }else{
 
-        clearInterval(countdown)
-    }
 
-     console.log('you see me man?????!');
-});
-// nextBtn.addEventListener('mouseenter', ()=>{
-//       myTimer(clearInterval);
-//       console.log('clearing.....');
+
+// quote.addEventListener('click', ()=>{
+//     onQuoteChange();
+//     console.log('onQuoteChange is working!')
 // })
-// nextBtn.addEventListener('click', ()=>{
-//     onStartBtn();
-//     changeQuote();
-// });
-// refreshBtn.addEventListener('click', decreaseCountdown)
 
-if (questionTab.style.border != 'solid #c0bfbfce 1px'||
-    nice.style.color != 'grey'||
-    nope.style.color != 'grey' ) {
-    revertInitialColor()
-}
+// if (questionTab.style.border != 'solid #c0bfbfce 1px'||
+//     nice.style.color != 'grey'||
+//     nope.style.color != 'grey' ) {
+//     revertInitialColor()
+// }
+
 // chadwick START
 chadwick.addEventListener('mouseenter', ()=>{
         openInfoTab(actorInfoOne, 'visible');
@@ -273,19 +300,19 @@ chadwick.addEventListener('click', ()=>{
     if (quote.innerText === chadwickAnswers.cAnswer1 || 
         quote.innerText === chadwickAnswers.cAnswer2 || 
         quote.innerText === chadwickAnswers.cAnswer3) {
-        chadwick.style.backgroundColor = 'green';
-        chadwick.style.borderColor = 'lightGreen';
+        // chadwick.style.backgroundColor = 'green';
         selectActorCorrect();
-        revertInitialColor();
-        changeQuote();
-      
-
+        chadwick.style.borderColor = 'lightGreen';
+        // chadwick.style.border= 'solid lightGreen 3px';
+ 
 
             
     }else{
         selectActorIncorrect();
         chadwick.style.borderColor = 'red';
-        revertInitialColor()
+        // chadwick.style.border= 'solid red 3px';
+        // chadwick.style.backgroundColor = 'red';
+
     }
  
     console.log('selected!')
@@ -305,13 +332,15 @@ michael.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === michaelAnswers.mAnswer1 || 
         quote.innerText === michaelAnswers.mAnswer2 ) {
-           selectActorCorrect();
-           michael.style.backgroundColor = 'green';
-           michael.style.borderColor = 'lightGreen';
+            //    michael.style.backgroundColor = 'green';
+            selectActorCorrect();
+            michael.style.borderColor = 'lightGreen';
+         
 
     }else{
         selectActorIncorrect();
         michael.style.borderColor = 'red';
+        //   michael.style.backgroundColor = 'red';
 
     }
  
@@ -330,13 +359,16 @@ lupita.addEventListener('mouseleave', ()=>{
 lupita.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === lupitaAnswers.lAnswer1) {
-           selectActorCorrect();
-           lupita.style.backgroundColor = 'green';
-           lupita.style.borderColor = 'lightGreen';
+        //    lupita.style.backgroundColor = 'green';
+        selectActorCorrect();
+        lupita.style.borderColor = 'lightGreen';
+        
+           
 
     }else{
         selectActorIncorrect();
         lupita.style.borderColor = 'red';
+        // lupita.style.backgroundColor = 'red';
 
     }
  
@@ -356,13 +388,15 @@ letitia.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === letitiaAnswers.letitiaAnswer1 || 
         quote.innerText === letitiaAnswers.letitiaAnswer2) {
-           selectActorCorrect();
-           letitia.style.backgroundColor = 'green';
-           letitia.style.borderColor = 'lightGreen';
+            //    letitia.style.backgroundColor = 'green';
+            selectActorCorrect();
+            letitia.style.borderColor = 'lightGreen';
+      
 
     }else{
         selectActorIncorrect();
         letitia.style.borderColor = 'red';
+        // letitia.style.backgroundColor = 'red';
 
     }
  
@@ -381,13 +415,15 @@ danai.addEventListener('mouseleave', ()=>{
 danai.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === danaiAnswers.danaiAnswer1) {
-           selectActorCorrect();
-           danai.style.backgroundColor = 'green';
-           danai.style.borderColor = 'lightGreen';
+        //    danai.style.backgroundColor = 'green';
+        selectActorCorrect();
+        danai.style.borderColor = 'lightGreen';
+        
 
     }else{
         selectActorIncorrect();
         danai.style.borderColor = 'red';
+        // danai.style.backgroundColor = 'red';
 
     }
  
@@ -406,18 +442,32 @@ daniel.addEventListener('mouseleave', ()=>{
 daniel.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === danielAnswers.danielAnswer1 ) {
-           selectActorCorrect();
-           daniel.style.backgroundColor = 'green';
-           daniel.style.borderColor = 'lightGreen';
+        //    daniel.style.backgroundColor = 'green';
+        selectActorCorrect();
+        daniel.style.borderColor = 'lightGreen';
+        
 
     }else{
         selectActorIncorrect();
         daniel.style.borderColor = 'red';
+        // daniel.style.backgroundColor = 'red';
 
     }
  
     console.log('selected!')
 })        
+
+// nextBtn.addEventListener('click', (e)=>{
+//     if (e) {     
+        
+//      onNextBtn();
+//     changeQuote();
+    
+//     }else{
+//     clearInterval(countdown)
+//     }
+
+// });
 // daniel END
 // EventListeners end-------- -------- -------- -------- -------- -------- -------->
 
