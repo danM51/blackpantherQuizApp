@@ -1,20 +1,3 @@
-// const blackPanther = document.getElementById('blackPanther');
-// const el = document.querySelector('.mainContent');
-
-// el.addEventListener("mousemove", (e) => {
-//   el.style.backgroundPositionX = -e.offsetX + "px";
-//   el.style.backgroundPositionY = -e.offsetY + "px";
-
-
-// });
-// // blackPanther.addEventListener("mousemove", (e) => {
-// //   el.style.backgroundPositionX = -e.offsetX + "px";
-// //   el.style.backgroundPositionY = -e.offsetY + "px";
-// // });
-
-
-// create the quotes in an object in another js file (we'll use the module method)
-
 // accessing elements in Dom
 // play START
 const playBtn = document.getElementById('playBtn');
@@ -22,13 +5,13 @@ const gameContainer = document.getElementById('gameContainer');
 // play END
 const questionTab = document.getElementById('questionTab');
 const timer = document.getElementById('countdown');
+
 // const nextBtn = document.getElementById('nextBtn');
 const startBtn = document.getElementById('startBtn');
 const refreshBtn = document.getElementById('refreshBtn');
 const quote = document.getElementById('quote');
 const nice = document.getElementById('nice');
 const nope = document.getElementById('nope');
-
 // timer END
 
 const chadwick = document.getElementById('actorOne');
@@ -47,6 +30,8 @@ const actorInfoSix = document.getElementById('actorInfoSix');
 // end of actor Info tabs
 const scoreNumber = document.getElementById('scoreNumber');
 
+const starBar = document.getElementById('starContainer');
+
 // functions START-------- -------- -------- -------- -------- -------- -------->
 const playGame = ()=>{
     // gameContainer.style.visibility = 'visible';
@@ -60,17 +45,37 @@ const playGame = ()=>{
 
 // question functions here -->
 const saidStatements = {
-    question1: '"question1"',
-    question2: '"question2"',
-    question3: '"question3"',
-    question4: '"question4"',
-    question5: '"question5"',
-    question6: '"question6"',
-    question7: '"question7"',
-    question8: '"question8"',
-    question9: '"question9"',
-    question10: '"question10"',
-   
+    // Chadwick Start
+    question1: `"In Times Of Crisis, The Wise Build Bridges While The Foolish Build Barriers."`,
+    question3: `who got killed first battling for the throne?`,
+    question5: ``,
+    // -------->
+
+    // Michael Start
+    question2: `who rocks the iconic dreads?`,
+    question6: `who wore the golden black panther suite?`,
+    question14:`"Burry me in the ocean...because they knew death was better than death"`,
+    // -------->
+
+    // lupita Start
+    question4: `"You Get To Decide What Kind Of King You Are Going To Be."`,
+    // -------->
+
+    // Letitia questions start
+    question7: `"Did he freeze?"`,
+    question8: `"The real question is, what are those?"`,
+    question11: `"Just because it something works doesn't mean it can't be improved."`,
+    question12:`"You Said You Would Take Me To California For The First Time, I Thought You Meant Coachella."`,
+    // -------->
+
+    // Dani Start
+    question10: `who did the rhino lick?"`,
+    question13: `who thinks guns are primitive?`,
+    // -------->
+
+    // Daniel Start
+    question9: `who nearly gets hit by a rhino?`,
+    // -------->
 }
 const changeQuote = ()=>{
     const keys = Object.values(saidStatements);
@@ -96,39 +101,40 @@ const openInfoTab = (position, visibility)=>{
 
 // correct answers 
 const chadwickAnswers ={
-        cAnswer1:saidStatements.question1,
-  cAnswer2:saidStatements.question3,
-  cAnswer3:saidStatements.question5,
+    cAnswer1:saidStatements.question1,
+    cAnswer2:saidStatements.question3,
+    cAnswer3:saidStatements.question5
     }
     
 const michaelAnswers ={
-        mAnswer1:saidStatements.question6,
-  mAnswer2:saidStatements.question2,
+    mAnswer1:saidStatements.question6,
+    mAnswer2:saidStatements.question2,
+    mAnswer3: saidStatements.question14
 }
 const lupitaAnswers ={
-        lAnswer1:saidStatements.question4,
- 
+    lAnswer1:saidStatements.question4,
     }
     
 const letitiaAnswers ={
-        letitiaAnswer1:saidStatements.question7,
-  letitiaAnswer2:saidStatements.question8,
+    letitiaAnswer1:saidStatements.question7,
+    letitiaAnswer2:saidStatements.question8,
+    letitiaAnswer3:saidStatements.question11,
+    letitiaAnswer4:saidStatements.question12
 }
 const danaiAnswers ={
-        danaiAnswer1:saidStatements.question10,
-  
+    danaiAnswer1:saidStatements.question10,
+    danaiAnswer2:saidStatements.question13
     }
     
 const danielAnswers ={
-        danielAnswer1:saidStatements.question9,
-  
+    danielAnswer1:saidStatements.question9,
 }
 
 
 
 // score functions here -->
 
-// does selection match the question if so then correct (green) if not then incorrect (red)
+// does selection match the question if so then (green) if not then incorrect (red)
 //update the score 
 //add the star
 
@@ -139,7 +145,7 @@ const danielAnswers ={
 
 
 playBtn.addEventListener('click', ()=>{
-    gameContainer.animate()
+    // gameContainer.animate();
     return playGame();
     
 })
@@ -221,12 +227,22 @@ const selectActorCorrect = ()=>{
   nope.style.display = 'none';
 
 
+let starNode = document.createElement('div');
+starBar.appendChild(starNode);
+starNode.classList.add('starTwo');
+
+// starBar.style.animationName = 'flashBar';
+
+
+//   starBar.
+// ---------------------------------------------------------------------->
+
 
 
 
 
 const score = ()=>{
- scoreNumber.innerText = `${pointScore()}/6`
+ scoreNumber.innerText = `${pointScore()}/14`
 }
 score();
 
@@ -267,6 +283,7 @@ startBtn.addEventListener('click', ()=>{
     changeQuote();
     setInterval(countdown, 1000);
     clearInterval(countdown);
+    starBar.style.animationName = 'flashBar';
 
 
 },{once:true})
@@ -331,7 +348,8 @@ michael.addEventListener('mouseleave', ()=>{
 michael.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === michaelAnswers.mAnswer1 || 
-        quote.innerText === michaelAnswers.mAnswer2 ) {
+        quote.innerText === michaelAnswers.mAnswer2 ||
+        quote.innerText === michaelAnswers.mAnswer3) {
             //    michael.style.backgroundColor = 'green';
             selectActorCorrect();
             michael.style.borderColor = 'lightGreen';
@@ -387,7 +405,10 @@ letitia.addEventListener('mouseleave', ()=>{
 letitia.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
     if (quote.innerText === letitiaAnswers.letitiaAnswer1 || 
-        quote.innerText === letitiaAnswers.letitiaAnswer2) {
+        quote.innerText === letitiaAnswers.letitiaAnswer2 ||
+        quote.innerText === letitiaAnswers.letitiaAnswer3 ||
+        quote.innerText === letitiaAnswers.letitiaAnswer4)
+         {
             //    letitia.style.backgroundColor = 'green';
             selectActorCorrect();
             letitia.style.borderColor = 'lightGreen';
@@ -414,7 +435,8 @@ danai.addEventListener('mouseleave', ()=>{
 })
 danai.addEventListener('click', ()=>{
 // if answer matches question then correct if not then incorrect (use if statement)
-    if (quote.innerText === danaiAnswers.danaiAnswer1) {
+    if (quote.innerText === danaiAnswers.danaiAnswer1 ||
+        quote.innerText === danaiAnswers.danaiAnswer2) {
         //    danai.style.backgroundColor = 'green';
         selectActorCorrect();
         danai.style.borderColor = 'lightGreen';

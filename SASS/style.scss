@@ -1,3 +1,6 @@
+html{
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
@@ -324,9 +327,12 @@ body {
       justify-content: flex-end;
       padding-bottom: 1.5rem;
       align-items: center;
-      background-image: url(/css/images/gameOneBg.svg);
+      background-image: url(/css/images/gameOneBg.svg), url(/css/images/moreToCome.svg);
       background-repeat: no-repeat;
-      background-size: 100%;
+      background-size: 100%, 100px;
+      background-position-x:0, 100%;
+      background-position-y:0, 100%;
+
       .game {
         width: 1030px;
         height: 513px;
@@ -391,9 +397,9 @@ body {
             background-image: url(/css/images/QuoteIcon.svg);
             background-repeat: no-repeat;
             background-position: bottom;
-            background-position-y: 50px;
+            background-position-y: 25px;
             background-position-x: 290px;
-            background-size: 40px;
+            background-size: 20px;
             border: solid #c0bfbfce 0.3px;
             box-shadow: #7a6a9d 0px 05px 2px;
             // background-color: #9221ff;
@@ -671,9 +677,10 @@ body {
             flex-direction: row;
             align-self: center;
             justify-content: space-around;
-
             padding: 0 4rem;
             transition: all 1s;
+            animation: 3s alternate 1;
+            // animation-name: flashBarr;
             .starOne,
             .starTwo,
             .starThree,
@@ -691,9 +698,16 @@ body {
               width: 45px;
               height: 100%;
               transition: all 3s;
+              animation: rotate360 3s alternate 1;
               //   background-color: rgb(58, 58, 58);
               //   border: solid white 1px;
             }
+            @keyframes rotate360 {
+              0%{
+                transform: rotate(-360deg);
+              }
+            }
+
             .starTen {
               background-image: url(/css/images/starIconHalf.svg);
               background-repeat: no-repeat;
@@ -715,6 +729,13 @@ body {
             .starTen:hover {
               transform: rotate(360deg);
               transition: all 1s;
+            }
+          }
+          @keyframes flashBar {
+            0%{
+              // background-color: #ffd100;
+              border-right: solid #ffd100 50px;
+              border-left: solid #ffd100 50px;
             }
           }
         }

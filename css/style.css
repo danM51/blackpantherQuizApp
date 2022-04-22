@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -297,9 +301,11 @@ body .mainDesktopContain {
     justify-content: flex-end;
     padding-bottom: 1.5rem;
     align-items: center;
-    background-image: url(/css/images/gameOneBg.svg);
+    background-image: url(/css/images/gameOneBg.svg), url(/css/images/moreToCome.svg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100%, 100px;
+    background-position-x: 0, 100%;
+    background-position-y: 0, 100%;
   }
   body .gameOneContainer .game {
     width: 1030px;
@@ -352,9 +358,9 @@ body .mainDesktopContain {
     background-image: url(/css/images/QuoteIcon.svg);
     background-repeat: no-repeat;
     background-position: bottom;
-    background-position-y: 50px;
+    background-position-y: 25px;
     background-position-x: 290px;
-    background-size: 40px;
+    background-size: 20px;
     border: solid rgba(192, 191, 191, 0.8078431373) 0.3px;
     box-shadow: #7a6a9d 0px 5px 2px;
     border-radius: 5px;
@@ -591,6 +597,7 @@ body .gameOneContainer .game .centerActorsContainer .actorContainer .actorSix:ho
     justify-content: space-around;
     padding: 0 4rem;
     transition: all 1s;
+    animation: 3s alternate 1;
   }
   body .gameOneContainer .game .scoreContainer .starContainer .starOne,
 body .gameOneContainer .game .scoreContainer .starContainer .starTwo,
@@ -609,6 +616,12 @@ body .gameOneContainer .game .scoreContainer .starContainer .starTen {
     width: 45px;
     height: 100%;
     transition: all 3s;
+    animation: rotate360 3s alternate 1;
+  }
+  @keyframes rotate360 {
+    0% {
+      transform: rotate(-360deg);
+    }
   }
   body .gameOneContainer .game .scoreContainer .starContainer .starTen {
     background-image: url(/css/images/starIconHalf.svg);
@@ -631,5 +644,11 @@ body .gameOneContainer .game .scoreContainer .starContainer .starNine:hover,
 body .gameOneContainer .game .scoreContainer .starContainer .starTen:hover {
     transform: rotate(360deg);
     transition: all 1s;
+  }
+  @keyframes flashBar {
+    0% {
+      border-right: solid #ffd100 50px;
+      border-left: solid #ffd100 50px;
+    }
   }
 }
