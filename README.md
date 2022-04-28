@@ -11,4 +11,7 @@ So without further a-do, find out how well you know the heroes by testing your k
 </h2>
 i'd like this project to be ongoing whereby I will be refactoring any bugs and adding more games as time progresses.
 hope you like the concept. 
+
+https://blackpanther-game-beta1.netlify.app/
+
 <h3> V.1 (Is DESKTOP ONLY)</h3>
